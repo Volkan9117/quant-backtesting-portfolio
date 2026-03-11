@@ -267,6 +267,22 @@
       cursor: default;
     }
     .module-card:hover { background: var(--bg3); }
+    a.module-card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
+    }
+    a.module-card:hover .module-link { color: var(--amber); }
+    a.module-card:hover .module-title { color: var(--amber); }
+    .module-link {
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 14px;
+      transition: color 0.15s;
+    }
     .module-num {
       font-size: 10px;
       color: var(--amber);
@@ -462,9 +478,9 @@
   </div>
   <div class="modules-grid">
 
-    <div class="module-card">
-      <div class="module-num">MODULE 01</div>
-      <div class="module-title">Préparation des données financières</div>
+    <a class="module-card" href="https://github.com/volkan9117/quant-backtesting-portfolio/blob/main/Projet%201%20%20Pr%C3%A9paration%20et%20Analyse%20de%20Donn%C3%A9es%20Financi%C3%A8res.ipynb" target="_blank">
+      <div class="module-num">PROJET 01</div>
+      <div class="module-title">Préparation et Analyse de Données Financières</div>
       <div class="module-desc">Import, nettoyage et structuration de données boursières brutes depuis Yahoo Finance et fichiers CSV.</div>
       <div class="module-tags">
         <span class="tag">pandas</span>
@@ -472,35 +488,38 @@
         <span class="tag">resampling</span>
         <span class="tag">nettoyage</span>
       </div>
-    </div>
+      <div class="module-link">Voir sur GitHub →</div>
+    </a>
 
-    <div class="module-card">
-      <div class="module-num">MODULE 02</div>
-      <div class="module-title">Rendements & Volatilité</div>
+    <a class="module-card" href="https://github.com/volkan9117/quant-backtesting-portfolio/blob/main/Projet%202%20Analyse%20Quantitative%20du%20Risque%20de%20March%C3%A9%20%20Cas%20d%27%C3%89tude%20NVIDIA.ipynb" target="_blank">
+      <div class="module-num">PROJET 02</div>
+      <div class="module-title">Analyse Quantitative du Risque de Marché — Cas NVIDIA</div>
       <div class="module-desc">Calcul des rendements simples, cumulés et de la volatilité annualisée. Visualisation des distributions.</div>
       <div class="module-tags">
         <span class="tag">rendements</span>
         <span class="tag">volatilité</span>
-        <span class="tag">matplotlib</span>
-        <span class="tag">seaborn</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">risque</span>
       </div>
-    </div>
+      <div class="module-link">Voir sur GitHub →</div>
+    </a>
 
-    <div class="module-card">
-      <div class="module-num">MODULE 03</div>
-      <div class="module-title">Moyennes mobiles SMA & EMA</div>
+    <a class="module-card" href="https://github.com/volkan9117/quant-backtesting-portfolio/blob/main/Projet%203%20Mod%C3%A9lisation%20de%20Strat%C3%A9gies%20de%20Tendance%20%20Golden%20Cross%20%26%20Death%20Cross.ipynb" target="_blank">
+      <div class="module-num">PROJET 03</div>
+      <div class="module-title">Stratégies de Tendance — Golden Cross & Death Cross</div>
       <div class="module-desc">Implémentation des indicateurs de tendance SMA et EMA avec visualisation interactive Plotly.</div>
       <div class="module-tags">
         <span class="tag">SMA</span>
-        <span class="tag">EMA</span>
-        <span class="tag">rolling()</span>
+        <span class="tag">Golden Cross</span>
+        <span class="tag">Death Cross</span>
         <span class="tag">plotly</span>
       </div>
-    </div>
+      <div class="module-link">Voir sur GitHub →</div>
+    </a>
 
-    <div class="module-card">
-      <div class="module-num">MODULE 04</div>
-      <div class="module-title">Analyse technique avancée</div>
+    <a class="module-card" href="https://github.com/volkan9117/quant-backtesting-portfolio/blob/main/Projet%204%20Mod%C3%A9lisation%20d%27Indicateurs%20Avanc%C3%A9s.ipynb" target="_blank">
+      <div class="module-num">PROJET 04</div>
+      <div class="module-title">Modélisation d'Indicateurs Avancés</div>
       <div class="module-desc">RSI, MACD, OBV et A/D Line — indicateurs standards utilisés en salle des marchés.</div>
       <div class="module-tags">
         <span class="tag">RSI</span>
@@ -508,11 +527,12 @@
         <span class="tag">OBV</span>
         <span class="tag">A/D Line</span>
       </div>
-    </div>
+      <div class="module-link">Voir sur GitHub →</div>
+    </a>
 
-    <div class="module-card">
-      <div class="module-num">MODULE 05</div>
-      <div class="module-title">Backtesting de stratégies</div>
+    <a class="module-card" href="https://github.com/volkan9117/quant-backtesting-portfolio/blob/main/Projet%205%20Backtesting%20avec%20la%20librairie%20Backtrader.ipynb" target="_blank">
+      <div class="module-num">PROJET 05</div>
+      <div class="module-title">Backtesting avec la librairie Backtrader</div>
       <div class="module-desc">Simulation d'une stratégie de croisement de moyennes mobiles avec mesure du Sharpe ratio et drawdown.</div>
       <div class="module-tags">
         <span class="tag">backtrader</span>
@@ -520,11 +540,12 @@
         <span class="tag">Sharpe</span>
         <span class="tag">simulation</span>
       </div>
-    </div>
+      <div class="module-link">Voir sur GitHub →</div>
+    </a>
 
-    <div class="module-card">
-      <div class="module-num">MODULE 06</div>
-      <div class="module-title">Machine Learning en finance</div>
+    <a class="module-card" href="https://github.com/volkan9117/quant-backtesting-portfolio/blob/main/Projet_6_Appliquer_Le_ML_En_finance.ipynb" target="_blank">
+      <div class="module-num">PROJET 06</div>
+      <div class="module-title">Machine Learning appliqué à la Finance</div>
       <div class="module-desc">Classification et régression avec Random Forest pour générer des signaux de trading automatisés.</div>
       <div class="module-tags">
         <span class="tag">Random Forest</span>
@@ -532,7 +553,8 @@
         <span class="tag">régression</span>
         <span class="tag">scikit-learn</span>
       </div>
-    </div>
+      <div class="module-link">Voir sur GitHub →</div>
+    </a>
 
   </div>
 </section>
@@ -596,11 +618,11 @@
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/volkan-isleyen-60584038a/">LinkedIn</a>
     <a href="https://github.com/volkan9117">GitHub</a>
-    <a href="mailto:volkanisleyen86@gmail.com">Contact</a>
+    <a href="volkanisleyen86@gmail.com">Contact</a>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── Sparkline AAPL simulée ──
   (function() {
     const pts = [120,125,118,130,128,135,142,138,145,150,148,155,160,158,165,170,168,175,180,183];
@@ -651,12 +673,4 @@
       ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
     }
     for (let y = 0; y < canvas.height; y += step) {
-      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
-    }
-  }
-  drawGrid();
-  window.addEventListener('resize', drawGrid);
-</script>
-
-</body>
-</html>
+      ctx.beginPath(); ctx.moveTo(0,
