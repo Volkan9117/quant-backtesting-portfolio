@@ -7,9 +7,9 @@
 title: "Python pour la Finance de Marché"
 description: "Portfolio de projets Python appliqués à la finance quantitative — analyse de données, indicateurs techniques, backtesting et Machine Learning."
 author: "Votre Prénom Nom"
-email: votre@email.com
-url: "https://votre-username.github.io"
-baseurl: "/python-finance"
+email: volkanisleyen86@email.com
+url: "https://volkan9117.github.io"
+baseurl: "/quant-backtesting-portfolio"
 
 # --- Langue ---
 lang: fr
