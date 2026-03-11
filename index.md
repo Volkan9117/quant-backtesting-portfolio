@@ -1,44 +1,662 @@
----
-layout: home
-title: "Python pour la Finance de Marché"
----
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Python pour la Finance de Marché — Volkan</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #0a0c0f;
+      --bg2:       #0f1318;
+      --bg3:       #151b22;
+      --border:    #1e2830;
+      --amber:     #f5a623;
+      --amber-dim: #b87a1a;
+      --green:     #00d084;
+      --red:       #ff4d4d;
+      --blue:      #4a9eff;
+      --text:      #c8d6e0;
+      --text-dim:  #5a7080;
+      --text-mid:  #8fa8b8;
+      --mono:      'IBM Plex Mono', monospace;
+      --sans:      'IBM Plex Sans', sans-serif;
+    }
 
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
-![Scikit--learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
-![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
-![Status](https://img.shields.io/badge/Status-En%20cours-22C55E?style=flat-square)
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
----
+    html { scroll-behavior: smooth; }
 
-## Présentation
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-Ce portfolio regroupe mes travaux en **Python appliqué à la finance de marché**, couvrant l'ensemble de la chaîne analytique : de la collecte et la préparation des données jusqu'à l'implémentation de modèles de Machine Learning intégrés dans des stratégies de trading.
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: #060809;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      height: 28px;
+      display: flex;
+      align-items: center;
+    }
+    .ticker-label {
+      background: var(--amber);
+      color: #000;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 0 10px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+    }
+    .ticker-track {
+      display: flex;
+      animation: ticker 30s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-item {
+      padding: 0 28px;
+      font-size: 11px;
+      color: var(--text-mid);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .ticker-item .sym { color: var(--text); font-weight: 500; }
+    .ticker-item .up  { color: var(--green); }
+    .ticker-item .dn  { color: var(--red); }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
 
-Ces projets ont été réalisés dans le cadre de mon parcours autodidacte en finance quantitative, en vue d'un **Master Finance de Marché**. Ils illustrent ma capacité à manipuler des données financières réelles et à implémenter des concepts théoriques en code fonctionnel.
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .topbar-logo {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--amber);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .topbar-sep { color: var(--border); }
+    .topbar-sub {
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+    .topbar-nav {
+      display: flex;
+      gap: 4px;
+    }
+    .topbar-nav a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 11px;
+      padding: 5px 12px;
+      border: 1px solid transparent;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.15s;
+    }
+    .topbar-nav a:hover {
+      color: var(--amber);
+      border-color: var(--amber-dim);
+      background: rgba(245,166,35,0.05);
+    }
 
----
+    /* ── HERO ── */
+    .hero {
+      padding: 64px 32px 48px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--amber);
+    }
+    .hero h1 {
+      font-family: var(--sans);
+      font-size: 36px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span { color: var(--amber); }
+    .hero-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 28px;
+      font-family: var(--sans);
+      font-weight: 300;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .badge {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border: 1px solid;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .badge-amber  { color: var(--amber); border-color: var(--amber-dim); background: rgba(245,166,35,0.07); }
+    .badge-blue   { color: var(--blue);  border-color: #1e4a7a;          background: rgba(74,158,255,0.07); }
+    .badge-green  { color: var(--green); border-color: #0a5c3a;          background: rgba(0,208,132,0.07); }
+    .badge-dim    { color: var(--text-dim); border-color: var(--border);  background: transparent; }
 
-## Modules
+    /* ── CHART WIDGET ── */
+    .chart-widget {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 16px;
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .chart-sym  { font-size: 14px; font-weight: 600; color: #fff; }
+    .chart-name { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
+    .chart-price { text-align: right; }
+    .chart-val  { font-size: 18px; font-weight: 600; color: var(--green); }
+    .chart-chg  { font-size: 11px; color: var(--green); }
+    .sparkline  { width: 100%; height: 60px; }
 
-| Module | Thème | Compétences clés |
-|--------|-------|-----------------|
-| `01` | Préparation des données financières | `pandas`, `yfinance`, nettoyage, resampling |
-| `02` | Rendements & Volatilité | Rendements simples/cumulés, volatilité annualisée |
-| `03` | Moyennes mobiles (SMA & EMA) | `rolling()`, `ewm()`, visualisation interactive |
-| `04` | Analyse technique | RSI, MACD, OBV, A/D Line, `plotly` |
-| `05` | Backtesting | `backtrader`, stratégies SMA, Sharpe ratio, drawdown |
-| `06` | Machine Learning en finance | Random Forest, classification, régression, signaux de trading |
+    /* ── SECTION ── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 32px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .section-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: rgba(245,166,35,0.1);
+      border: 1px solid var(--amber-dim);
+      padding: 3px 8px;
+    }
+    .section-title {
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
 
----
+    /* ── MODULES GRID ── */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .module-card {
+      background: var(--bg2);
+      padding: 20px;
+      transition: background 0.15s;
+      cursor: default;
+    }
+    .module-card:hover { background: var(--bg3); }
+    .module-num {
+      font-size: 10px;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+    .module-title {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .module-desc {
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.7;
+      font-family: var(--sans);
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+    .module-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .tag {
+      font-size: 9px;
+      padding: 2px 7px;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
 
-## Stack technique
+    /* ── STACK ── */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .stack-item {
+      background: var(--bg2);
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stack-lib  { font-size: 12px; font-weight: 500; color: #fff; }
+    .stack-role { font-size: 10px; color: var(--text-dim); font-family: var(--sans); }
+    .stack-bar  {
+      height: 2px;
+      background: var(--border);
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stack-bar::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; height: 100%;
+      background: var(--amber);
+      animation: barfill 1.2s ease forwards;
+      width: 0;
+    }
+    @keyframes barfill { to { width: var(--w); } }
 
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat-square)
-![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=flat-square)
-![Plotly](https://img.shields.io/badge/Plotly-3D52A0?style=flat-square&logo=plotly&logoColor=white)
-![Scikit--learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
-![Backtrader](https://img.shields.io/badge/Backtrader-16A34A?style=flat-square)
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-left { font-size: 11px; color: var(--text-dim); }
+    .footer-left strong { color: var(--text); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--amber); }
+
+    /* ── CANVAS BG ── */
+    #bg-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      opacity: 0.03;
+      z-index: 0;
+    }
+    .hero, .topbar, .ticker-wrap, section, footer { position: relative; z-index: 1; }
+
+    @media (max-width: 768px) {
+      .hero-grid       { grid-template-columns: 1fr; }
+      .modules-grid    { grid-template-columns: 1fr; }
+      .stack-grid      { grid-template-columns: repeat(2, 1fr); }
+      .chart-widget    { display: none; }
+      .topbar-nav      { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-label">LIVE</div>
+  <div style="overflow:hidden;flex:1">
+    <div class="ticker-track" id="ticker"></div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-logo">Quant Portfolio</span>
+    <span class="topbar-sep">|</span>
+    <span class="topbar-sub">Python · Finance de Marché</span>
+  </div>
+  <nav class="topbar-nav">
+    <a href="#modules">Modules</a>
+    <a href="#stack">Stack</a>
+    <a href="https://github.com/volkan9117/quant-backtesting-portfolio" target="_blank">GitHub</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Finance Quantitative · Python</div>
+      <h1>Python pour la<br><span>Finance de Marché</span></h1>
+      <p class="hero-desc">
+        Portfolio de projets couvrant l'ensemble de la chaîne analytique — 
+        préparation des données, indicateurs techniques, backtesting de stratégies 
+        et Machine Learning appliqué aux marchés financiers.
+      </p>
+      <div class="hero-badges">
+        <span class="badge badge-amber">6 Modules</span>
+        <span class="badge badge-blue">Python 3.12</span>
+        <span class="badge badge-green">Master Finance</span>
+        <span class="badge badge-dim">En cours</span>
+      </div>
+    </div>
+
+    <!-- CHART WIDGET -->
+    <div class="chart-widget">
+      <div class="chart-header">
+        <div>
+          <div class="chart-sym">AAPL</div>
+          <div class="chart-name">Apple Inc.</div>
+        </div>
+        <div class="chart-price">
+          <div class="chart-val" id="aapl-price">$182.63</div>
+          <div class="chart-chg" id="aapl-chg">+1.24 (+0.68%)</div>
+        </div>
+      </div>
+      <svg class="sparkline" id="sparkline" viewBox="0 0 300 60" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#00d084" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#00d084" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path id="spark-area" fill="url(#sg)"/>
+        <path id="spark-line" fill="none" stroke="#00d084" stroke-width="1.5"/>
+      </svg>
+      <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:9px;color:var(--text-dim)">
+        <span>2021</span><span>2022</span><span>2023</span><span>2024</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULES -->
+<section class="section" id="modules">
+  <div class="section-header">
+    <span class="section-tag">01 — 06</span>
+    <span class="section-title">Modules</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="modules-grid">
+
+    <div class="module-card">
+      <div class="module-num">MODULE 01</div>
+      <div class="module-title">Préparation des données financières</div>
+      <div class="module-desc">Import, nettoyage et structuration de données boursières brutes depuis Yahoo Finance et fichiers CSV.</div>
+      <div class="module-tags">
+        <span class="tag">pandas</span>
+        <span class="tag">yfinance</span>
+        <span class="tag">resampling</span>
+        <span class="tag">nettoyage</span>
+      </div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">MODULE 02</div>
+      <div class="module-title">Rendements & Volatilité</div>
+      <div class="module-desc">Calcul des rendements simples, cumulés et de la volatilité annualisée. Visualisation des distributions.</div>
+      <div class="module-tags">
+        <span class="tag">rendements</span>
+        <span class="tag">volatilité</span>
+        <span class="tag">matplotlib</span>
+        <span class="tag">seaborn</span>
+      </div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">MODULE 03</div>
+      <div class="module-title">Moyennes mobiles SMA & EMA</div>
+      <div class="module-desc">Implémentation des indicateurs de tendance SMA et EMA avec visualisation interactive Plotly.</div>
+      <div class="module-tags">
+        <span class="tag">SMA</span>
+        <span class="tag">EMA</span>
+        <span class="tag">rolling()</span>
+        <span class="tag">plotly</span>
+      </div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">MODULE 04</div>
+      <div class="module-title">Analyse technique avancée</div>
+      <div class="module-desc">RSI, MACD, OBV et A/D Line — indicateurs standards utilisés en salle des marchés.</div>
+      <div class="module-tags">
+        <span class="tag">RSI</span>
+        <span class="tag">MACD</span>
+        <span class="tag">OBV</span>
+        <span class="tag">A/D Line</span>
+      </div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">MODULE 05</div>
+      <div class="module-title">Backtesting de stratégies</div>
+      <div class="module-desc">Simulation d'une stratégie de croisement de moyennes mobiles avec mesure du Sharpe ratio et drawdown.</div>
+      <div class="module-tags">
+        <span class="tag">backtrader</span>
+        <span class="tag">drawdown</span>
+        <span class="tag">Sharpe</span>
+        <span class="tag">simulation</span>
+      </div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">MODULE 06</div>
+      <div class="module-title">Machine Learning en finance</div>
+      <div class="module-desc">Classification et régression avec Random Forest pour générer des signaux de trading automatisés.</div>
+      <div class="module-tags">
+        <span class="tag">Random Forest</span>
+        <span class="tag">classification</span>
+        <span class="tag">régression</span>
+        <span class="tag">scikit-learn</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="section" id="stack" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-tag">Stack</span>
+    <span class="section-title">Technologies</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="stack-grid">
+    <div class="stack-item">
+      <span class="stack-lib">pandas</span>
+      <span class="stack-role">Manipulation de données</span>
+      <div class="stack-bar" style="--w:95%"></div>
+    </div>
+    <div class="stack-item">
+      <span class="stack-lib">numpy</span>
+      <span class="stack-role">Calcul numérique</span>
+      <div class="stack-bar" style="--w:90%"></div>
+    </div>
+    <div class="stack-item">
+      <span class="stack-lib">yfinance</span>
+      <span class="stack-role">Données boursières</span>
+      <div class="stack-bar" style="--w:85%"></div>
+    </div>
+    <div class="stack-item">
+      <span class="stack-lib">matplotlib</span>
+      <span class="stack-role">Visualisation statique</span>
+      <div class="stack-bar" style="--w:88%"></div>
+    </div>
+    <div class="stack-item">
+      <span class="stack-lib">plotly</span>
+      <span class="stack-role">Visualisation interactive</span>
+      <div class="stack-bar" style="--w:80%"></div>
+    </div>
+    <div class="stack-item">
+      <span class="stack-lib">backtrader</span>
+      <span class="stack-role">Backtesting</span>
+      <div class="stack-bar" style="--w:75%"></div>
+    </div>
+    <div class="stack-item">
+      <span class="stack-lib">scikit-learn</span>
+      <span class="stack-role">Machine Learning</span>
+      <div class="stack-bar" style="--w:78%"></div>
+    </div>
+    <div class="stack-item">
+      <span class="stack-lib">seaborn</span>
+      <span class="stack-role">Dataviz statistique</span>
+      <div class="stack-bar" style="--w:72%"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <strong>Volkan ISLEYEN</strong> · Candidat Master Finance de Marché
+  </div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/volkan-isleyen-60584038a/">LinkedIn</a>
+    <a href="https://github.com/volkan9117">GitHub</a>
+    <a href="mailto:volkanisleyen86@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+  // ── Sparkline AAPL simulée ──
+  (function() {
+    const pts = [120,125,118,130,128,135,142,138,145,150,148,155,160,158,165,170,168,175,180,183];
+    const W = 300, H = 60;
+    const min = Math.min(...pts), max = Math.max(...pts);
+    const x = i => (i / (pts.length - 1)) * W;
+    const y = v => H - ((v - min) / (max - min)) * (H - 4) - 2;
+    const d = pts.map((v,i) => `${i===0?'M':'L'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+    document.getElementById('spark-line').setAttribute('d', d);
+    const area = d + ` L${W},${H} L0,${H} Z`;
+    document.getElementById('spark-area').setAttribute('d', area);
+  })();
+
+  // ── Ticker ──
+  const tickers = [
+    { sym:'AAPL',  price:'182.63', chg:'+0.68%', up:true  },
+    { sym:'MSFT',  price:'415.20', chg:'+1.12%', up:true  },
+    { sym:'GOOGL', price:'175.84', chg:'-0.34%', up:false },
+    { sym:'AMZN',  price:'198.11', chg:'+0.91%', up:true  },
+    { sym:'TSLA',  price:'248.50', chg:'-1.20%', up:false },
+    { sym:'NVDA',  price:'875.40', chg:'+2.34%', up:true  },
+    { sym:'JPM',   price:'198.72', chg:'+0.45%', up:true  },
+    { sym:'GS',    price:'452.30', chg:'-0.22%', up:false },
+    { sym:'SPY',   price:'512.84', chg:'+0.55%', up:true  },
+    { sym:'BTC',   price:'67420',  chg:'+1.88%', up:true  },
+  ];
+  const track = document.getElementById('ticker');
+  const html  = tickers.map(t =>
+    `<span class="ticker-item">
+      <span class="sym">${t.sym}</span>
+      <span>${t.price}</span>
+      <span class="${t.up?'up':'dn'}">${t.chg}</span>
+    </span>`
+  ).join('');
+  track.innerHTML = html + html; // doubled for seamless loop
+
+  // ── Canvas grid background ──
+  const canvas = document.getElementById('bg-canvas');
+  const ctx    = canvas.getContext('2d');
+  function drawGrid() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = '#4a9eff';
+    ctx.lineWidth   = 0.5;
+    const step = 40;
+    for (let x = 0; x < canvas.width; x += step) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+    }
+    for (let y = 0; y < canvas.height; y += step) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+    }
+  }
+  drawGrid();
+  window.addEventListener('resize', drawGrid);
+</script>
+
+</body>
+</html>
