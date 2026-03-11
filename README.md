@@ -12,6 +12,7 @@
 Ce repository regroupe mes travaux en **Python appliqué à la finance de marché**, couvrant l'ensemble de la chaîne analytique : de la collecte et la préparation des données jusqu'à l'implémentation de modèles de Machine Learning intégrés dans des stratégies de trading.
 
 Ces projets ont été réalisés dans le cadre de mon parcours autodidacte en finance quantitative, en vue d'un **Master Finance de Marché**. Ils illustrent ma capacité à manipuler des données financières réelles et à implémenter des concepts théoriques en code fonctionnel.
+
 ---
 ## Objectifs du projet
 
