@@ -7,7 +7,7 @@
 title: "Python pour la Finance de Marché"
 description: "Portfolio de projets Python appliqués à la finance quantitative — analyse de données, indicateurs techniques, backtesting et Machine Learning."
 author: "Votre Prénom Nom"
-email: volkanisleyen86@email.com
+email: votremail@email.com
 url: "https://volkan9117.github.io"
 baseurl: "/quant-backtesting-portfolio"
 
@@ -18,16 +18,13 @@ lang: fr
 theme: minima
 minima:
   skin: classic
+  social_links:
+    - { platform: linkedin, user_url: "https://linkedin.com/in/votre-profil" }
+    - { platform: github,   user_url: "https://github.com/volkan9117" }
 
 # --- Navigation ---
 header_pages:
   - index.md
-
-# --- Liens réseaux sociaux ---
-minima:
-  social_links:
-    - { platform: linkedin, user_url: "https://linkedin.com/in/votre-profil" }
-    - { platform: github,   user_url: "https://github.com/votre-username" }
 
 # --- Plugins GitHub Pages ---
 plugins:
