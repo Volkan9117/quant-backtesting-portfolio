@@ -1,5 +1,8 @@
 # 📊 Python pour la Finance de Marché
-
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![Finance](https://img.shields.io/badge/Finance-Quantitative-green)
+![Backtesting](https://img.shields.io/badge/Backtesting-Trading-orange)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-red)
 > Portfolio de projets Python appliqués à la finance quantitative — analyse de données, indicateurs techniques, backtesting et Machine Learning.
 
 ---
@@ -9,9 +12,18 @@
 Ce repository regroupe mes travaux en **Python appliqué à la finance de marché**, couvrant l'ensemble de la chaîne analytique : de la collecte et la préparation des données jusqu'à l'implémentation de modèles de Machine Learning intégrés dans des stratégies de trading.
 
 Ces projets ont été réalisés dans le cadre de mon parcours autodidacte en finance quantitative, en vue d'un **Master Finance de Marché**. Ils illustrent ma capacité à manipuler des données financières réelles et à implémenter des concepts théoriques en code fonctionnel.
+---
+## Objectifs du projet
+
+Ce projet vise à :
+
+- développer un pipeline complet d'analyse de données financières
+- implémenter des indicateurs techniques utilisés en trading
+- tester des stratégies via backtesting
+- appliquer des méthodes de Machine Learning aux marchés financiers
+- construire un portfolio technique en Python pour la finance quantitative
 
 ---
-
 ## Structure du repository
 
 | Module | Thème | Compétences clés |
@@ -97,7 +109,18 @@ Deux approches ML appliquées à la prédiction boursière :
 **Librairies :** `scikit-learn`, `pandas`, `numpy`, `matplotlib`
 
 ---
+## Améliorations futures
 
+Les pistes d'amélioration incluent :
+
+- intégration des coûts de transaction
+- gestion d'un portefeuille multi-actifs
+- optimisation des hyperparamètres des stratégies
+- utilisation de modèles ML plus avancés (XGBoost, LSTM)
+- implémentation de walk-forward backtesting
+- gestion du risque et position sizing
+
+---
 ## Stack technique
 
 ```
