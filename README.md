@@ -4,7 +4,7 @@
 
 ---
 
-## 🎯 Présentation
+## Présentation
 
 Ce repository regroupe mes travaux en **Python appliqué à la finance de marché**, couvrant l'ensemble de la chaîne analytique : de la collecte et la préparation des données jusqu'à l'implémentation de modèles de Machine Learning intégrés dans des stratégies de trading.
 
@@ -12,7 +12,7 @@ Ces projets ont été réalisés dans le cadre de mon parcours autodidacte en fi
 
 ---
 
-## 🗂️ Structure du repository
+## Structure du repository
 
 | Module | Thème | Compétences clés |
 |--------|-------|-----------------|
@@ -25,7 +25,7 @@ Ces projets ont été réalisés dans le cadre de mon parcours autodidacte en fi
 
 ---
 
-## 📁 Détail des modules
+## Détail des modules
 
 ### 01 — Préparation des données financières
 Fondation de tout pipeline d'analyse quantitative : import depuis Yahoo Finance et CSV, nettoyage (valeurs manquantes, doublons, anomalies), gestion des séries temporelles et resampling (journalier → hebdomadaire → mensuel).
@@ -98,7 +98,7 @@ Deux approches ML appliquées à la prédiction boursière :
 
 ---
 
-## 🛠️ Stack technique
+## Stack technique
 
 ```
 Python 3.12
@@ -110,7 +110,7 @@ Python 3.12
 
 ---
 
-## 🚀 Installation & utilisation
+## Installation & utilisation
 
 ```bash
 # Cloner le repository
