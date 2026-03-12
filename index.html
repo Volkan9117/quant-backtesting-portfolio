@@ -139,12 +139,81 @@
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 48px;
+      grid-template-columns: 1fr 260px 260px;
+      gap: 32px;
       max-width: 1100px;
       margin: 0 auto;
-      align-items: center;
+      align-items: start;
     }
+
+    /* ── AUTHOR CARD ── */
+    .author-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 20px;
+    }
+    .author-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      background: rgba(245,166,35,0.15);
+      border: 1px solid var(--amber-dim);
+      color: var(--amber);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .author-name { font-size: 13px; font-weight: 600; color: #fff; }
+    .author-role { font-size: 10px; color: var(--text-dim); margin-top: 2px; font-family: var(--sans); }
+    .author-bio {
+      font-size: 11px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      font-family: var(--sans);
+      font-weight: 300;
+      margin-bottom: 14px;
+      border-left: 2px solid var(--border);
+      padding-left: 10px;
+    }
+    .author-goal {
+      font-size: 10px;
+      color: var(--text-dim);
+      background: rgba(245,166,35,0.05);
+      border: 1px solid var(--amber-dim);
+      padding: 6px 10px;
+      margin-bottom: 14px;
+      font-family: var(--sans);
+    }
+    .author-goal-label {
+      color: var(--amber);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-right: 8px;
+      font-family: var(--mono);
+    }
+    .author-links { display: flex; gap: 8px; }
+    .author-link {
+      font-size: 10px;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.15s;
+      flex: 1;
+      text-align: center;
+    }
+    .author-link:hover { color: var(--amber); border-color: var(--amber-dim); background: rgba(245,166,35,0.05); }
     .hero-eyebrow {
       font-size: 10px;
       letter-spacing: 0.15em;
@@ -391,6 +460,7 @@
       .modules-grid    { grid-template-columns: 1fr; }
       .stack-grid      { grid-template-columns: repeat(2, 1fr); }
       .chart-widget    { display: none; }
+      .author-card     { order: -1; }
       .topbar-nav      { display: none; }
     }
   </style>
@@ -437,6 +507,28 @@
         <span class="badge badge-blue">Python 3.12</span>
         <span class="badge badge-green">Master Finance</span>
         <span class="badge badge-dim">En cours</span>
+      </div>
+    </div>
+
+    <!-- AUTHOR CARD -->
+    <div class="author-card">
+      <div class="author-header">
+        <div class="author-avatar">VK</div>
+        <div>
+          <div class="author-name">Volkan</div>
+          <div class="author-role">Economics Student · Quant Finance</div>
+        </div>
+      </div>
+      <p class="author-bio">
+        Third-year Economics student at Université Grenoble Alpes with a strong interest in quantitative finance and financial markets. This portfolio presents several trading strategies developed in Python, focusing on backtesting and financial data analysis.
+      </p>
+      <div class="author-goal">
+        <span class="author-goal-label">Objectif</span>
+        Master Finance de Marché
+      </div>
+      <div class="author-links">
+        <a href="https://www.linkedin.com/in/volkan-isleyen-60584038a/">LinkedIn</a>
+        <a href="https://github.com/volkan9117" target="_blank" class="author-link">GitHub</a>
       </div>
     </div>
 
