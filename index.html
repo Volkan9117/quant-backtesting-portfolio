@@ -421,6 +421,70 @@
     }
     @keyframes barfill { to { width: var(--w); } }
 
+    /* ── CERTIFICATIONS ── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .cert-card {
+      background: var(--bg2);
+      padding: 24px;
+      position: relative;
+      transition: background 0.15s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .cert-card:hover { background: var(--bg3); }
+    .cert-card:hover .module-link { color: var(--amber); }
+    .cert-card:hover .cert-name   { color: var(--amber); }
+    .cert-issuer {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .cert-name {
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .cert-code {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      letter-spacing: 0.06em;
+    }
+    .cert-desc {
+      font-size: 11px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      font-family: var(--sans);
+      font-weight: 300;
+      border-left: 2px solid var(--border);
+      padding-left: 10px;
+    }
+    .cert-badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      border: 1px solid #0a5c3a;
+      background: rgba(0,208,132,0.07);
+      padding: 3px 8px;
+    }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
@@ -527,7 +591,7 @@
         Master Finance de Marché
       </div>
       <div class="author-links">
-        <a href="https://www.linkedin.com/in/volkan-isleyen-60584038a/">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/volkan-isleyen-60584038a/" target="_blank" class="author-link">LinkedIn</a>
         <a href="https://github.com/volkan9117" target="_blank" class="author-link">GitHub</a>
       </div>
     </div>
@@ -699,6 +763,36 @@
       <span class="stack-role">Dataviz statistique</span>
       <div class="stack-bar" style="--w:72%"></div>
     </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section" id="certifications" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-tag">Bloomberg</span>
+    <span class="section-title">Certifications</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="cert-grid">
+
+    <a class="cert-card" href="https://portal.bloombergforeducation.com/certificates/feoCkKaNrmw5LuYZTxiHp395" target="_blank">
+      <div class="cert-issuer">Bloomberg</div>
+      <div class="cert-name">Bloomberg Market Concepts</div>
+      <div class="cert-code">BMC</div>
+      <div class="cert-desc">Maîtrise des concepts fondamentaux des marchés financiers : taux d'intérêt, actions, devises et matières premières via le Terminal Bloomberg.</div>
+      <div class="cert-badge">Certifié</div>
+      <div class="module-link" style="margin-top:14px">Voir le certificat →</div>
+    </a>
+
+    <a class="cert-card" href="https://portal.bloombergforeducation.com/certificates/bT599j59pmTr9jZrqr8r6pkD" target="_blank">
+      <div class="cert-issuer">Bloomberg</div>
+      <div class="cert-name">Bloomberg Financial Fundamentals</div>
+      <div class="cert-code">BFF</div>
+      <div class="cert-desc">Connaissance approfondie des états financiers, valorisation d'entreprises et analyse fondamentale appliquée aux marchés.</div>
+      <div class="cert-badge">Certifié</div>
+      <div class="module-link" style="margin-top:14px">Voir le certificat →</div>
+    </a>
+
   </div>
 </section>
 
